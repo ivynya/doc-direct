@@ -14,6 +14,9 @@
   });
   function load() {
     const pathParams = window.location.pathname.split("/");
+    const timeout = setTimeout(() => {
+      document.getElementById("loader").style.display = "block";
+    }, 100);
     fetch(`/${pathParams[2]}.md`)
       .then(res => res.text())
       .then(res => {
@@ -21,6 +24,7 @@
         document.getElementById("content").innerHTML = marked.parse(res);
       })
       .then(() => {
+        clearTimeout(timeout);
         document.getElementById("loader").style.display = "none";
       })
       .catch(() => setTimeout(load, 2000));
@@ -90,7 +94,7 @@
   </style>
 </head>
 <body>
-  <span id="loader" class="loader"></span>
+  <span id="loader" class="loader" style="display:none;"></span>
   <div id="content"></div>
   <br>
   <p class="tag">
