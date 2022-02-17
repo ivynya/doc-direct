@@ -20,14 +20,16 @@
     fetch(`/${pathParams[2]}.md`)
       .then(res => res.text())
       .then(res => {
+        if (!res) {
+          setTimeout(load, 3000);
+          return;
+        }
         document.getElementById("title").innerHTML = pathParams[2];
         document.getElementById("content").innerHTML = marked.parse(res);
-      })
-      .then(() => {
+        
         clearTimeout(timeout);
         document.getElementById("loader").style.display = "none";
-      })
-      .catch(() => setTimeout(load, 2000));
+      });
   }
   </script>
   <style>
