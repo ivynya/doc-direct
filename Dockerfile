@@ -18,7 +18,6 @@ WORKDIR /app
 COPY deps.ts .
 COPY . .
 
-RUN deno cache deps.ts
 RUN deno cache main.ts
 
 RUN npm i
