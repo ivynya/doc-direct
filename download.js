@@ -13,8 +13,12 @@ const args = yargs(process.argv.slice(2))
   .argv;
 
 (async () => {
+  const page = await notion.pages.retrieve({ page_id: args.page});
+  const title = page.properties.title.title[0].text.content;
   const mdblocks = await n2m.pageToMarkdown(args.page);
-  const mdString = n2m.toMarkdownString(mdblocks);
+  let mdString = n2m.toMarkdownString(mdblocks);
+
+  mdString = `# ${title}\n\n` + mdString;
 
   // writing to file
   fs.writeFile(`content/${args.page}.md`, mdString, (err) => {
