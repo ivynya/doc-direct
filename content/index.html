@@ -9,27 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
+  const MARKDOWN_STRING = `%REPLACE_MARKDOWN_STRING%`;
   document.addEventListener("DOMContentLoaded", () => {
     load();
   });
   function load() {
     const pathParams = window.location.pathname.split("/");
-    const timeout = setTimeout(() => {
-      document.getElementById("loader").style.display = "block";
-    }, 100);
-    fetch(`/${pathParams[2]}.md`)
-      .then(res => res.text())
-      .then(res => {
-        if (!res) {
-          setTimeout(load, 3000);
-          return;
-        }
-        document.getElementById("title").innerHTML = pathParams[2];
-        document.getElementById("content").innerHTML = marked.parse(res);
-        
-        clearTimeout(timeout);
-        document.getElementById("loader").style.display = "none";
-      });
+    document.getElementById("title").innerHTML = pathParams[2];
+    document.getElementById("content").innerHTML = marked.parse(MARKDOWN_STRING);
+    document.getElementById("loader").style.display = "none";
   }
   </script>
   <style>
@@ -111,8 +99,8 @@
   </style>
 </head>
 <body>
-  <span id="loader" class="loader" style="display:none;"></span>
-  <div id="content"></div>
+  <span id="loader" class="loader"></span>
+  <main id="content"></main>
   <br>
   <p class="tag">
     <span>IvyDoc:</span>
