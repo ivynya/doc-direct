@@ -1,7 +1,6 @@
-import { Application, Router } from "./deps.ts";
+import { Application, Router, Client } from "./deps.ts";
 import { getPageMarkdown } from "./download.ts";
 
-import { Client } from "npm:@notionhq/client";
 const notion = new Client({ auth: Deno.env.get("NOTION_TOKEN") });
 
 /* Application logic */

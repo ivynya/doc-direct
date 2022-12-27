@@ -1,4 +1,4 @@
-import { NotionToMarkdown } from "npm:notion-to-md";
+import { NotionToMarkdown } from "./deps.ts";
 
 export async function getPageMarkdown(notion: any, pageId: string) {
   // get page title
