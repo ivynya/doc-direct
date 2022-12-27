@@ -11,14 +11,11 @@
   <script>
   const MARKDOWN_STRING = `%REPLACE_MARKDOWN_STRING%`;
   document.addEventListener("DOMContentLoaded", () => {
-    load();
+    const params = window.location.pathname.split("/");
+    document.querySelector("#title").innerHTML = params[2];
+    document.querySelector("#content").innerHTML = marked.parse(MARKDOWN_STRING);
+    document.querySelector("#loader").style.display = "none";
   });
-  function load() {
-    const pathParams = window.location.pathname.split("/");
-    document.getElementById("title").innerHTML = pathParams[2];
-    document.getElementById("content").innerHTML = marked.parse(MARKDOWN_STRING);
-    document.getElementById("loader").style.display = "none";
-  }
   </script>
   <style>
   body {
@@ -48,41 +45,6 @@
     border-bottom: 1px solid #ddd;
     margin-top: 0;
   }
-
-  .loader {
-    width: 48px;
-    height: 48px;
-    display: inline-block;
-    position: relative;
-  }
-  .loader::after,
-  .loader::before {
-    content: '';  
-    box-sizing: border-box;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #000;
-    position: absolute;
-    left: 0;
-    top: 0;
-    animation: animloader 2s linear infinite;
-  }
-  .loader::after {
-    animation-delay: 1s;
-  }
-
-  @keyframes animloader {
-    0% {
-      transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0;
-    }
-  }
-
   img {
     max-height: 350px;
     max-width: 100%;
@@ -90,7 +52,6 @@
     margin: auto;
     display: block;
   }
-
   code {
     background-color: #eee;
     border-radius: 3px;
@@ -99,7 +60,7 @@
   </style>
 </head>
 <body>
-  <span id="loader" class="loader"></span>
+  <b id="loader">LOADING</b>
   <main id="content"></main>
   <br>
   <p class="tag">
