@@ -2,6 +2,8 @@
 
 Use Notion to publish a document to the web with custom URL and branding.
 
+> ⚠️ Uses unofficial notion-to-md and @notionhq/client packages to allow for Deno Deploy. Will be removed once Deploy supports NPM. 
+
 ## Deploying Doc Direct
 
 1. Create a Notion integration from the developers console
