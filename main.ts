@@ -13,7 +13,8 @@ router
   })
   .get("/p/:id", async ctx => {
     const index = `${Deno.cwd()}/content/index.html`;
-    const md = await getPageMarkdown(notion, ctx.params.id);
+    let md = await getPageMarkdown(notion, ctx.params.id);
+    md = md.replaceAll("`", "\\`");
     let html = await Deno.readTextFile(index);
     html = html.replaceAll("%REPLACE_MARKDOWN_STRING%", md);
     ctx.response.body = html;
