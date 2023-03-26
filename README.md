@@ -1,8 +1,8 @@
-# doc-direct
+# document
 
 Use Notion to publish a document to the web with custom URL and branding.
 
-## Deploying Doc Direct
+## Deploying
 
 1. Create a Notion integration from the developers console
 2. Paste token into `.env` file with format in `.env.example`
