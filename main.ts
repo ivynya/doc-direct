@@ -8,8 +8,19 @@ const app = new Application();
 const router = new Router();
 
 router
-  .get("/d/:id", ctx => {
-    ctx.response.body = getPageMarkdown(notion, ctx.params.id);
+  .get("/", ctx => {
+    ctx.response.body = "https://github.com/ivynya/document";
+  })
+  .get("/doc.css", ctx => {
+    const css = `${Deno.cwd()}/content/doc.css`;
+    ctx.response.headers.set("Access-Control-Allow-Origin", "*");
+    ctx.response.headers.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    ctx.response.headers.set("Content-Type", "text/css");
+    ctx.response.headers.set("Cache-Control", "max-age=3600");
+    ctx.response.body = Deno.readTextFileSync(css);
+  })
+  .get("/d/:id", async ctx => {
+    ctx.response.body = await getPageMarkdown(notion, ctx.params.id);
   })
   .get("/p/:id", async ctx => {
     const index = `${Deno.cwd()}/content/index.html`;
