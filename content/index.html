@@ -4,9 +4,7 @@
   <meta charset="utf-8"/>
   <title>IvyDoc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"> 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.typekit.net/src8spu.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
   const MARKDOWN_STRING = `%REPLACE_MARKDOWN_STRING%`;
@@ -19,7 +17,7 @@
   </script>
   <style>
   body {
-    font-family: "Urbanist", sans-serif;
+    font-family: "greycliff-cf", sans-serif;
     max-width: 600px;
     margin: 5vh auto;
     line-height: 1.5;
@@ -52,10 +50,29 @@
     margin: auto;
     display: block;
   }
+  pre {
+    background-color: #eee;
+    border-radius: 5px;
+    font-family: "cartograph-cf", serif;
+    padding: 10px;
+    overflow-x: auto;
+  }
+  pre::before {
+    background-color: #5b6a2b;
+    border-radius: 2px;
+    color: #fcf3c0;
+    content: "embedded code block";
+    display: block;
+    font-size: 0.75em;
+    margin-bottom: 5px;
+    padding: 3px 5px;
+  }
   code {
     background-color: #eee;
     border-radius: 3px;
-    padding: 3px 5px;
+    font-family: "cartograph-cf", serif;
+    font-size: 0.75em;
+    padding: 0 5px;
   }
   </style>
 </head>
