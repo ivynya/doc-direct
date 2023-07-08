@@ -1,46 +1,41 @@
 
-body {
+#ivydoc {
   font-family: "greycliff-cf", sans-serif;
-  max-width: 600px;
-  margin: 5vh auto;
   line-height: 1.5;
 }
-.tag {
-  color: #ccc;
-  font-size: 0.8em;
-  margin-bottom: 0.5em;
-}
-blockquote {
+#ivydoc blockquote {
   background-color: #eee;
   border-radius: 5px;
   margin: 0;
   padding: 3px 20px;
 }
-h1, h2, h3 {
+#ivydoc h1,
+#ivydoc h2,
+#ivydoc h3 {
   margin-bottom: 5px;
   margin-top: 30px;
 }
-hr {
+#ivydoc hr {
   background: none;
   border: none;
   border-bottom: 1px solid #ddd;
   margin-top: 0;
 }
-img {
+#ivydoc img {
   max-height: 350px;
   max-width: 100%;
   border-radius: 8px;
   margin: auto;
   display: block;
 }
-pre {
+#ivydoc pre {
   background-color: #eee;
   border-radius: 5px;
   font-family: "cartograph-cf", serif;
   padding: 10px;
   overflow-x: auto;
 }
-pre::before {
+#ivydoc pre::before {
   background-color: #5b6a2b;
   border-radius: 2px;
   color: #fcf3c0;
@@ -50,7 +45,7 @@ pre::before {
   margin-bottom: 5px;
   padding: 3px 5px;
 }
-code {
+#ivydoc code {
   background-color: #eee;
   border-radius: 3px;
   font-family: "cartograph-cf", serif;
