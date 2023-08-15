@@ -11,6 +11,14 @@ router
   .get("/", ctx => {
     ctx.response.body = "https://github.com/ivynya/document";
   })
+  .get("/favicon.png", ctx => {
+    const favicon = `${Deno.cwd()}/content/favicon.png`;
+    ctx.response.headers.set("Access-Control-Allow-Origin", "*");
+    ctx.response.headers.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    ctx.response.headers.set("Content-Type", "image/png");
+    ctx.response.headers.set("Cache-Control", "max-age=3600");
+    ctx.response.body = Deno.readTextFileSync(favicon);
+  })
   .get("/doc.css", ctx => {
     const css = `${Deno.cwd()}/content/doc.css`;
     ctx.response.headers.set("Access-Control-Allow-Origin", "*");
